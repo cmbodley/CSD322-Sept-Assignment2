@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$(function() {
+$(".datepicker").datepicker({
+        dateFormat: 'MM dd, yy',
+        changeMonth: true,
+        changeYear: true,
+        minDate: '-75Y',
+        maxDate: '0Y',
+        yearRange: '1942:nn'
+    });
+});
+</script>
+    <h:head>
+      <title>Sign Up</title>
+    </h:head>
+    <h:body>
+    <h:form>
+        <h3>Sign up for a presentation.</h3>   
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <h:inputText id="nameInput" value="#{user.name}" label="Name" required="true">
+                        <f:validateLength maximum="150"/>
+                    </h:inputText>
+                </td>
+                <td><h:message for="nameInput" style="color:red"/></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td>
+                    <h:inputText id="addrInput" value="#{user.address}" label="Address" required="true">
+                        <f:validateLength maximum="150"/>
+                    </h:inputText>
+                </td>
+                <td><h:message for="addrInput" style="color:red"/></td>
+            </tr>
+            <tr>
+                <td>Date of Birth:</td>
+                <td>
+                    <h:inputText id="date" class="datepicker" value="#{user.date}" required="true"/>
+                </td>            
+            </tr>
+        </table>
+        <p><h:commandButton value="Submit" action="thankYou"/></p>
+    </h:form>
+    </h:body>
+</html>
