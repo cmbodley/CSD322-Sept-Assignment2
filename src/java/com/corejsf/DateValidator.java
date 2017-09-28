@@ -1,4 +1,8 @@
-
+/*
+    Michael Morrow
+    CSD322
+    lab02
+*/
 package com.corejsf;
 
 import javax.faces.component.UIComponent;

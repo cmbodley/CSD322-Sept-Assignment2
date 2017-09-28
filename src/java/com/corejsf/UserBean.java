@@ -1,3 +1,9 @@
+/*
+    Michael Morrow
+    CSD322
+    lab02
+*/
+
 package com.corejsf;
 
 import java.io.Serializable;
