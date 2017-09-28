@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-RpX8okQqCyUNG7PlOYNybyJXYTtGQH+7rIKiVvg1DLg6jahLEk47VvpUyS+E2/uJ" crossorigin="anonymous"/>    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
@@ -23,35 +23,61 @@ $(".datepicker").datepicker({
       <title>Sign Up</title>
     </h:head>
     <h:body>
-    <h:form>
-        <h3>Sign up for a presentation.</h3>   
-        <table>
-            <tr>
-                <td>Name:</td>
-                <td>
-                    <h:inputText id="nameInput" value="#{user.name}" label="Name" required="true">
-                        <f:validateLength maximum="150"/>
-                    </h:inputText>
-                </td>
-                <td><h:message for="nameInput" style="color:red"/></td>
-            </tr>
-            <tr>
-                <td>Address:</td>
-                <td>
-                    <h:inputText id="addrInput" value="#{user.address}" label="Address" required="true">
-                        <f:validateLength maximum="150"/>
-                    </h:inputText>
-                </td>
-                <td><h:message for="addrInput" style="color:red"/></td>
-            </tr>
-            <tr>
-                <td>Date of Birth:</td>
-                <td>
-                    <h:inputText id="date" class="datepicker" value="#{user.date}" required="true"/>
-                </td>            
-            </tr>
-        </table>
-        <p><h:commandButton value="Submit" action="thankYou"/></p>
-    </h:form>
+        <h:form id="dateRangeForm">
+            <br/><br/>
+            <div>
+                <div class="row">
+                    <div class="col-sm-1"/>
+                    <div class="col-sm-5">
+                        <h3><b>Sign up for a presentation.</b></h3><br/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h4 class="text-right">Name:</h4>
+                    </div>
+                    <div class="col-sm-3">
+                        <h:inputText class="form-control" id="nameInput" value="#{user.name}" label="Name" required="true">
+                            <f:validateLength maximum="150"/>
+                        </h:inputText>
+                    </div>
+                    <div class="col">
+                        <h:message for="nameInput" style="color:red"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h4 class="text-right">Address:</h4>
+                    </div>
+                    <div class="col-sm-3">
+                        <h:inputText class="form-control" id="addrInput" value="#{user.address}" label="Address" required="true">
+                            <f:validateLength maximum="150"/>
+                        </h:inputText>
+                    </div>
+                    <div class="col">
+                        <h:message for="addrInput" style="color:red"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h4 class="text-right">Date of Birth:</h4>
+                    </div>
+                    <div class="col-sm-3">
+                        <h:inputText id="date" class="datepicker form-control" value="#{user.date}" required="true">
+                        <f:validator validatorId="dateValidator" />
+                        </h:inputText>
+                    </div>
+                    <div class="col">
+                        <h:message for="date" style="color:red"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"/>
+                    <div class="col-sm-1">
+                        <h:commandButton class="btn btn-primary" value="Submit" action="thankYou"/>
+                    </div>
+                </div>
+            </div>
+        </h:form>
     </h:body>
 </html>
