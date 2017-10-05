@@ -54,8 +54,4 @@ public class userBean implements Serializable {
     public void setDate(Date date) {
         this.date = date;
     }
-    
-    public String submit(){
-        return "success";
-    }
 }

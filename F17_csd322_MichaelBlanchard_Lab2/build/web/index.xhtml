@@ -28,8 +28,9 @@ $("#date").datepicker({
                         <h3>Name</h3>
                     </div>
                     <div class="col-sm-4">
-                        <h:inputText label="Name" value="#{userBean.name}" />                                                  
-                        
+                        <h:inputText label="Name" value="#{user.name}" required="true">  
+                        <f:validateLength maximum="150" />
+                        </h:inputText>
                     </div>
                     <div class="col-sm-2">
                         <h:message for="name" style="color:red"/>
@@ -40,8 +41,7 @@ $("#date").datepicker({
                         <h3>Date</h3>
                     </div>
                     <div class="col-sm-4">
-                        <input id="date" label="Date"
-                            value="#{userBean.date}" required="true">
+                        <input id="date" label="Date" value="#{user.date}" required="true">
                         </input>
                     </div>
                     <div class="col-sm-2">
@@ -53,9 +53,8 @@ $("#date").datepicker({
                         <h3>Address</h3>
                     </div>
                     <div class="col-sm-4">
-                        <h:inputText id="address" label="Address"
-                                     value="#{userBean.address}" required="true">
-                            <f:validateLongRange maximum="150" />
+                        <h:inputText id="address" label="Address" value="#{user.address}" required="true">
+                        <f:validateLength maximum="150" />
                         </h:inputText>
                     </div>
                     <div class="col-sm-2">
@@ -63,7 +62,7 @@ $("#date").datepicker({
                     </div>
                 </div>
                 <div class="row">
-                    <h:commandButton class="btn btn-light" value="Submit" action="#{userBean.submit}"/>
+                    <h:commandButton class="btn btn-light" value="Submit" action="success"/>
                 </div>
             </div>
         </h:form>
