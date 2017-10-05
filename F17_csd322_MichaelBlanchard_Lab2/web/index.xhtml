@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css"></link>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$(function() {
+$("#date").datepicker({
+        dateFormat: 'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        minDate: '-75Y',
+        maxDate: '0Y'
+    });
+});
+</script>
+    <h:head>
+        <title>Presentation Application Form</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>Please Enter Presentation Information</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <h3>Name</h3>
+                    </div>
+                    <div class="col-sm-4">
+                        <h:inputText label="Name" value="#{userBean.name}" />                                                  
+                        
+                    </div>
+                    <div class="col-sm-2">
+                        <h:message for="name" style="color:red"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <h3>Date</h3>
+                    </div>
+                    <div class="col-sm-4">
+                        <input id="date" label="Date"
+                            value="#{userBean.date}" required="true">
+                        </input>
+                    </div>
+                    <div class="col-sm-2">
+                        <h:message for="date" style="color:red"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <h3>Address</h3>
+                    </div>
+                    <div class="col-sm-4">
+                        <h:inputText id="address" label="Address"
+                                     value="#{userBean.address}" required="true">
+                            <f:validateLongRange maximum="150" />
+                        </h:inputText>
+                    </div>
+                    <div class="col-sm-2">
+                        <h:message for="address" style="color:red"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <h:commandButton class="btn btn-light" value="Submit" action="#{userBean.submit}"/>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>
