@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap.css"/>
+    <h:head>
+         
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+         <script>
+           $(document).ready(function () {
+               $(".datepicker").datepicker({
+                   dateFormat: 'dd-mm-yy',
+                   changeMonth: true,
+                   changeYear: true,
+                   yearRange: "-75:+0",
+                   maxDate: "+0d +0m",
+                   constrainInput: "true"
+               });
+           })
+        </script>
+        
+        <title>Assignment 2</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h3>Please enter your information to sign up for the presentation!</h3>
+            <section id="main">
+                <div class = "container">
+                    <div class = "row">
+			<div class = "col-1g-12">
+                            <div class="form-group">
+                                <table>
+                                    <tr>
+                                        <td>Name:</td>
+                                        <td><h:inputText id="name" value="#{userBean.name}" validatorMessage="#(msg.nameMessage)">
+                                        <f:validateLength maximum="150" />
+                                        <h:message for="name" />
+                                        </h:inputText>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address:</td>
+                                        <td><h:inputText value="#{userBean.address}" validatorMessage="#(msg.addressMessage)">
+                                        <f:validateLength maximum="150" />
+                                        <h:message for="address"/>
+                                        </h:inputText>
+                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date of Birth:</td>
+                                        <td><h:inputText id="dateOfBirth" value="#{userBean.dateOfBirth}" styleClass="datePicker" validatorMessage="#(msg.dateMessage)">
+                                                <f:convertDateTime pattern="dd-mm-yy"/>
+                                            </h:inputText>
+                                            <h:message for="dateOfBirth"/>
+                                        </td>
+                                    </tr>
+                                    <td>
+                                        <h:commandButton value="Login" action="results"/>
+                                    </td>
+                                </table>                            
+                            </div>
+			</div>
+                      </div> 
+                    </div>
+		</section>
+        </h:form>
+        <div id="google_translate_element"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 
+            'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </h:body>
+</html>
+
