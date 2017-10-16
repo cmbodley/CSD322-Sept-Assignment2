@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html">
+   <h:head>
+      <h:outputStylesheet library = "css" name="main.css"/>
+      <title>#{msgs.title}</title>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"></link>
+      <link rel="stylesheet" href="/resources/demos/style.css"></link>
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script>
+          $( function() {
+          $( ".datepicker" ).datepicker({
+              minDate: new Date(1942, 1 - 1, 1),
+              maxDate: 0 });
+          } );
+      </script>
+   </h:head>
+   <h:body>
+      <h:form>
+         <br></br><br></br><br></br><br></br>
+         <h1>#{msgs.enterUser}</h1>
+         <br></br><br></br>
+         <h:panelGrid id="panel" columns="3" border="0" cellpadding="8" 
+                      cellspacing="1">
+
+            #{msgs.name}
+            <h:inputText id="name" label="#{msgs.name}"
+                         value="#{info.name}" required="true">
+                <f:validateLength maximum="150"/>
+            </h:inputText>
+            <h:message for="name" styleClass="errorMessage"/>
+            
+            #{msgs.address}
+            <h:inputText id="address" label="#{msgs.address}"
+                         value="#{info.address}" required="true">
+                <f:validateLength maximum="150"/>
+            </h:inputText>
+            <h:message for="address" styleClass="errorMessage"/>
+
+            #{msgs.dob}
+            <h:inputText id="datepicker" label="#{msgs.dob}" styleClass="datepicker"
+                         value="#{info.dob}" required="true">
+               <f:convertDateTime pattern="MM/dd/yyyy"/>
+            </h:inputText>
+            <h:message for="dob" styleClass="errorMessage"/>
+         </h:panelGrid>
+         <br></br><br></br>
+         <h:commandButton value="#{msgs.enter}" action="result"/>
+         <h:commandButton value="#{msgs.cancel}" action="canceled" 
+                          immediate="true"/>
+         <br></br><br></br><br></br>
+         <h2></h2>
+         <h3>#{msgs.setLocale}</h3>
+         <h:commandButton value="#{msgs.english}" action="#{localeChanger.englishAction}"
+                          immediate="true"/>
+         <h:commandButton value="#{msgs.french}" action="#{localeChanger.frenchAction}"
+                          immediate="true"/>
+      </h:form>
+   </h:body>
+</html>
