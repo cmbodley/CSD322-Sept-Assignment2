@@ -56,7 +56,7 @@
                     <td>Date of Birth:</td>
                     <td><h:inputText label="Date" styleClass="datepicker" value="#{attendee.DOB}">
                             <f:validateRequired/>
-                            <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            <f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
                         </h:inputText>
                     </td>
                 </tr>
