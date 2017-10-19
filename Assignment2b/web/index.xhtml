@@ -57,6 +57,7 @@
                     <td><h:inputText label="Date" styleClass="datepicker" value="#{attendee.DOB}">
                             <f:validateRequired/>
                             <f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+                            <f:validator validatorId="dateValidator"/>
                         </h:inputText>
                     </td>
                 </tr>
